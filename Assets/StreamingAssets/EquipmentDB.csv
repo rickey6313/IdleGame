@@ -1,0 +1,10 @@
+UniqueID,Type,Name,Amount,ResourcePath,isStackable,Price,Hp,Mana,Stamina,Attack,Defence,Evade
+Equip_0,Equipment,Ammor,1,UI/Equipment/armor,False,10,20,10,10,0,10,1
+Equip_1,Equipment,Axe,1,UI/Equipment/axe,False,2,0,0,0,10,0,0
+Equip_2,Equipment,Sword,1,UI/Equipment/sword,False,2,0,0,0,10,0,0
+Equip_3,Equipment,Shield,1,UI/Equipment/shield,False,2,10,0,0,0,10,0
+Equip_4,Equipment,Belts,1,UI/Equipment/belts,False,2,5,0,10,0,3,0
+Equip_5,Equipment,Rigs,1,UI/Equipment/rigs,False,2,0,10,0,0,1,0
+Equip_6,Equipment,Boots,1,UI/Equipment/boots,False,2,10,0,0,0,5,0
+Equip_7,Equipment,Gloves,1,UI/Equipment/gloves,False,2,10,0,0,0,5,0
+Equip_8,Equipment,Pants,1,UI/Equipment/pants,False,2,10,0,0,0,10,0

@@ -1,0 +1,3 @@
+UniqueID,Type,Name,Amount,isStackable,Price,ResourcePath,ConsumptionType,Value
+Potion_1,Potion,ManaPotion,1,True,2,UI/Potion/mp,1,10
+Potion_0,Potion,HealingPotion,1,True,2,UI/Potion/hp,0,10
