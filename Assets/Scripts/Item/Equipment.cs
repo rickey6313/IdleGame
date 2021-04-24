@@ -15,11 +15,11 @@ public class Equipment : Item
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine($"<size=30>{itemName}</size>");
+        sb.AppendLine($"<size=25>{itemName}</size>");
         sb.AppendLine($"<size=15>Damage : {attack}</size>");
         sb.AppendLine($"<size=15>HP : {hp}</size>");
         sb.AppendLine($"<size=15>Price : {price}</size>");
 
-        return base.ToString();
+        return sb.ToString();
     }
 }

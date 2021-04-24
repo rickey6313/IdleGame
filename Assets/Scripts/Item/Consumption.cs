@@ -19,11 +19,11 @@ public class Consumption : Item
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine($"<size=30>{itemName}</size>");        
+        sb.AppendLine($"<size=25>{itemName}</size>");        
         sb.AppendLine($"<size=15>{GetTypeText()} : {value}</size>");
         sb.AppendLine($"<size=15>Price : {price}</size>");
 
-        return base.ToString();
+        return sb.ToString();
     }
 
     private string GetTypeText()

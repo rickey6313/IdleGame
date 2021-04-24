@@ -30,7 +30,7 @@ namespace Project_RPG
         {
             get { return mItemBehaviour; }
             set
-            {
+            {                
                 mItemBehaviour = value;
                 ItemBehaviour.SetItem(this);
             }

@@ -40,7 +40,7 @@ public static class ItemFactory
             bool b;
             potion.isStackable = bool.TryParse(csvPotionData[i]["isStackable"].ToString(), out b);
 
-            potion.consumptipnType = (ConsumptionType)int.Parse(csvPotionData[i]["ConsumptionType"].ToString());
+            potion.consumptionType = (ConsumptionType)int.Parse(csvPotionData[i]["ConsumptionType"].ToString());
             potion.value = int.Parse(csvPotionData[i]["Value"].ToString());
             mExpandableItemList.Add(potion);
         }

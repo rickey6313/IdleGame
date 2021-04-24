@@ -23,7 +23,8 @@ public class ItemBehaviour : MonoBehaviour
     }
 
     private void Init()
-    {
+    {        
+        mTooltip.SetDescripton(mItem.ToString());
         mTooltip.gameObject.SetActive(false);
     }
 

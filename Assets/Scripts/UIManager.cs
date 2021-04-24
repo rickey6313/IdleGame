@@ -59,9 +59,19 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.I))
+        
+    }
+
+    private void CheckInput()
+    {
+        if (Input.GetKeyUp(KeyCode.I))
         {
-            SwitchInventoryUI();            
+            SwitchInventoryUI();
+        }
+        
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha1))
