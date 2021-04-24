@@ -15,11 +15,16 @@ public class ItemBehaviour : MonoBehaviour
     [SerializeField] 
     private TextMeshProUGUI mAmountText;
     [SerializeField]
-    private GameObject mTooltip;
+    private ItemTooltipBehaviour mTooltip;
 
     private void Start()
     {
-        
+        Init();
+    }
+
+    private void Init()
+    {
+        mTooltip.gameObject.SetActive(false);
     }
 
     public void SetItem(Item item)
@@ -29,27 +34,12 @@ public class ItemBehaviour : MonoBehaviour
 
     public void ShowToolTip()
     {
-        Debug.Log("1");
-        mTooltip.SetActive(true);
+        mTooltip.gameObject.SetActive(true);
     }
 
     public void HideToolTipe()
     {
-        Debug.Log("2");
-        mTooltip.SetActive(false);
+        mTooltip.gameObject.SetActive(false);
     }
-    public void Test1()
-    {
-        Debug.Log("3");
-    }
-    public void Test2()
-    {
-        Debug.Log("4");
-    }
-    public void Test3()
-    {
-        Debug.Log("5");
-    }
-
 }
 

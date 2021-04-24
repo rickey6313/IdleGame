@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mItemImage: {fileID: 3999273187007761578}
   mAmountText: {fileID: 8663957578230382560}
-  mTooltip: {fileID: 8234327343936683743}
+  mTooltip: {fileID: 8530546762300885408}
 --- !u!114 &4528961058482530871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,12 +175,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<size=30>Axe</size>
+  m_text: '<size=30>Axe</size><br><size=15>Damage : 10</size>
 
-    <size=15>Damage : 10</size>
-
-    <size=15>HP
-    : 10</size>
+    <size=15>HP :
+    10</size>
 
     <size=15>Price : 2</size>'
   m_isRightToLeft: 0
@@ -546,13 +544,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5872826608875417560}
   - component: {fileID: 3086726533902456238}
+  - component: {fileID: 8530546762300885408}
   m_Layer: 5
   m_Name: TooltipCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5872826608875417560
 RectTransform:
   m_ObjectHideFlags: 0
@@ -594,6 +593,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!114 &8530546762300885408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234327343936683743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca242e1d9e33ad94d8ecb511e62f0428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mDescText: {fileID: 8491910356642622269}
 --- !u!1 &9144872508405661472
 GameObject:
   m_ObjectHideFlags: 0

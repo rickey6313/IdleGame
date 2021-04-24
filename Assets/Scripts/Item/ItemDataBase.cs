@@ -28,13 +28,7 @@ public class ItemDataBase
         get { return csvEquipmentData; }
     }
 
-
     private static List<Consumption> expandableItem;
-
-    private ItemDataBase()
-    {
-        
-    }
 
     public static void ReadItemData()
     {
