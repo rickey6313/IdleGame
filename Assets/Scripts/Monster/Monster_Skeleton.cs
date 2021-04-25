@@ -19,19 +19,21 @@ public class Monster_Skeleton : MonsterBase
     private AniState aniState = AniState.IDLE;
     private float watchDist;
 
+    private bool m_bDethAniEnd = false;
+
     public void SetMonsterSpawner(MonsterSpawner inputSpanwer)
     {
         spanwer = inputSpanwer;
     }
 
-    private void Start()
-    {
-        Init();
-    }
+    //private void Start()
+    //{
+    //    Init();
+    //}
 
     public void Init()
     {
-        
+        //Debug.Log("Monster_Skeleton::Init");
         health = 10;
         mana = 10;
         stamina = 10;
@@ -39,6 +41,9 @@ public class Monster_Skeleton : MonsterBase
         traceDist = 7.5f;
         attackDist = 3.0f;
         attackTime = 2.0f;
+        aniState = AniState.IDLE;
+        isDead = false;
+        m_bDethAniEnd = false;
 
         _transform = GetComponent<Transform>();
         targetTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -46,20 +51,23 @@ public class Monster_Skeleton : MonsterBase
 
         nvAgent.stoppingDistance = attackDist;
 
+        gameObject.SetActive(true);
+
         StartCoroutine(CheckState());
         StartCoroutine(CheckStateForAction());
     }
 
     private void Update()
     {
-        if (health <= 0 && aniState != AniState.DIE && !isDead)
-        {
-            animator.SetTrigger("die");
-            aniState = AniState.DIE;
-            isDead = true;
-            StopAllCoroutines();
-            spanwer.DestroyTarget(gameObject);
-        }
+        //if (health <= 0 && aniState != AniState.DIE && !isDead)
+        //{
+        //    animator.SetTrigger("die");
+        //    aniState = AniState.DIE;
+        //    isDead = true;
+        //    StopAllCoroutines();
+        //    gameObject.SetActive(false);
+        //    spanwer.HideTarget(gameObject);
+        //}
     }
 
     IEnumerator CheckState()
@@ -67,6 +75,12 @@ public class Monster_Skeleton : MonsterBase
         while (!isDead)
         {
             yield return null;
+
+            if(health <= 0 && aniState != AniState.DIE && !isDead)
+            {
+                aniState = AniState.DIE;
+                yield break;
+            }
 
             float dist = Vector3.Distance(targetTransform.position, transform.position);
 
@@ -114,6 +128,8 @@ public class Monster_Skeleton : MonsterBase
                     yield return AttackRoutine();
                     break;
                 case AniState.DIE:
+                    yield return DieRoutine();
+                    
                     break;
             }
             yield return null;
@@ -161,6 +177,31 @@ public class Monster_Skeleton : MonsterBase
         }
         yield return null;
     }
+
+    IEnumerator DieRoutine()
+    {
+        Debug.Log("DieRoutine 1");
+
+        isDead = true;
+        animator.SetTrigger("die");
+        
+        while (!m_bDethAniEnd)
+        {
+            yield return null;
+        }
+
+        StopAllCoroutines();
+        gameObject.SetActive(false);
+        spanwer.HideTarget(gameObject);
+        Debug.Log("DieRoutine 3");
+    }
+
+    public void DieEventFromAnimationEvent()
+    {
+        Debug.Log("DieEvent");
+        m_bDethAniEnd = true;
+    }
+
 
     public override void Damaged(float dmg)
     {
