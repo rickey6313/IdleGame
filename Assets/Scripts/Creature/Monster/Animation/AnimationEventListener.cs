@@ -15,8 +15,6 @@ public class AnimationEventListener : MonoBehaviour
             events[index].Invoke();
         }
         else
-        {
             Debug.Log("NO index");
-        }
     }
 }

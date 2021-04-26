@@ -1,0 +1,7 @@
+﻿<columns units="px">
+  <column name="Grade" type="Number" format="G" nulltext="-" alignment="Right" />
+  <column name="StatsID" type="Number" format="G" nulltext="-" alignment="Right" />
+  <column name="Name" type="Text" />
+  <column name="Min" type="Number" format="G" nulltext="-" alignment="Right" />
+  <column name="Max" type="Number" format="G" nulltext="-" alignment="Right" />
+</columns>

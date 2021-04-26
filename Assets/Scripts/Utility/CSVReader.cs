@@ -46,7 +46,8 @@ public class CSVReader
                 int n;
                 float f;
                 bool b;
-                if(int.TryParse(value, out n))
+                short s;
+                if (int.TryParse(value, out n))
                 {
                     finalvalue = n;
                 }
@@ -57,6 +58,10 @@ public class CSVReader
                 else if(bool.TryParse(value, out b))
                 {
                     finalvalue = b;
+                }
+                else if(short.TryParse(value, out s))
+                {
+                    finalvalue = s;
                 }
                 entry[header[j]] = finalvalue;
             }

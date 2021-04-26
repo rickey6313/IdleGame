@@ -26,11 +26,6 @@ public class Monster_Skeleton : MonsterBase
         spanwer = inputSpanwer;
     }
 
-    //private void Start()
-    //{
-    //    Init();
-    //}
-
     public void Init()
     {
         //Debug.Log("Monster_Skeleton::Init");
@@ -46,7 +41,7 @@ public class Monster_Skeleton : MonsterBase
         m_bDethAniEnd = false;
 
         _transform = GetComponent<Transform>();
-        targetTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        targetTransform = GameObject.FindWithTag("Player")?.GetComponent<Transform>() ?? null;
         nvAgent = GetComponent<NavMeshAgent>();
 
         nvAgent.stoppingDistance = attackDist;
@@ -55,19 +50,6 @@ public class Monster_Skeleton : MonsterBase
 
         StartCoroutine(CheckState());
         StartCoroutine(CheckStateForAction());
-    }
-
-    private void Update()
-    {
-        //if (health <= 0 && aniState != AniState.DIE && !isDead)
-        //{
-        //    animator.SetTrigger("die");
-        //    aniState = AniState.DIE;
-        //    isDead = true;
-        //    StopAllCoroutines();
-        //    gameObject.SetActive(false);
-        //    spanwer.HideTarget(gameObject);
-        //}
     }
 
     IEnumerator CheckState()
@@ -81,6 +63,9 @@ public class Monster_Skeleton : MonsterBase
                 aniState = AniState.DIE;
                 yield break;
             }
+
+            while(targetTransform == null)
+                yield return null;
 
             float dist = Vector3.Distance(targetTransform.position, transform.position);
 

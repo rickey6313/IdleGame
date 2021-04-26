@@ -1,0 +1,7 @@
+Grade,StatsID,Name,Min,Max
+0,0,Strength,1,10
+0,1,Hp,1,10
+0,2,Mp,1,10
+0,3,Dex,1,10
+0,4,Intelligence,1,10
+1,5,Damage,5,10

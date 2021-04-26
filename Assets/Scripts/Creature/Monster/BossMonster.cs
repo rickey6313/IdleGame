@@ -16,8 +16,6 @@ public class BossMonster : MonsterBase
 {
     private BossState aniState = BossState.IDLE;
 
-    WaitForSeconds attackTimer = new WaitForSeconds(2.0f);
-
     void Start()
     {
         health = 10;

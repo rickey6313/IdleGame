@@ -10,12 +10,11 @@ public class GameInstance : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this);
         ItemDataBase.ReadItemData();
-        //ItemDataBase.DataParseToExpandableItem();
+        ItemPropertyDataBase.ReadItemPropertiesData();
         ItemFactory.DataParseToClass();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        //UIManager.Instance.SetActiveInventoryPanel(false);
+        ItemPropertyCreator.DataParseToClass();
+
+        ItemPropertyModifier modifier = new ItemPropertyModifier();
+        modifier.CreatePrefix();
     }
 }

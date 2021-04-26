@@ -11,11 +11,20 @@ public enum ItemType
     Etc
 }
 
+public enum ItemGrade
+{ 
+    Normal,
+    Magic,
+    Rare
+}
+
+
 namespace Project_RPG
 {   
 
     public class Item
     {
+        public ItemGrade itemGrade;
         public ItemType itemType;
         public string itemName;
         public string resourcePath;
