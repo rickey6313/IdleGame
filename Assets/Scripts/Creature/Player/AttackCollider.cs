@@ -6,12 +6,7 @@ public class AttackCollider : MonoBehaviour
 {
     public BoxCollider mCollider;
     private PlayerCtrl owner;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     public void SetOwner(PlayerCtrl player)
     {
         owner = player;
@@ -35,9 +30,5 @@ public class AttackCollider : MonoBehaviour
                 
             }
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-
     }
 }
