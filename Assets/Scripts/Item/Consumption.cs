@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using Project_RPG;
 
 public enum ConsumptionType
 { 
@@ -22,6 +21,8 @@ public class Consumption : Item
         sb.AppendLine($"<size=25>{itemName}</size>");        
         sb.AppendLine($"<size=15>{GetTypeText()} : {value}</size>");
         sb.AppendLine($"<size=15>Price : {price}</size>");
+
+        
 
         return sb.ToString();
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project_RPG;
 using System.Text;
 
 public class Equipment : Item
@@ -19,7 +18,7 @@ public class Equipment : Item
         sb.AppendLine($"<size=15>Damage : {attack}</size>");
         sb.AppendLine($"<size=15>HP : {hp}</size>");
         sb.AppendLine($"<size=15>Price : {price}</size>");
-
+        sb.AppendLine(ItemPropertiesText());
         return sb.ToString();
     }
 }

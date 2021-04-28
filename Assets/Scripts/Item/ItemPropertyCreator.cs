@@ -3,30 +3,39 @@ using System.Collections.Generic;
 
 public static class ItemPropertyCreator
 {
-    private static Dictionary<int, Ability> mPrefixDict = new Dictionary<int, Ability>();
-    private static Dictionary<int, Ability> mSurrfxDict = new Dictionary<int, Ability>();
+    private static Dictionary<int, ItemPropertyData> mPrefixDict = new Dictionary<int, ItemPropertyData>();
+    private static Dictionary<int, ItemPropertyData> mSurrfxDict = new Dictionary<int, ItemPropertyData>();
+    private static Random random = new Random();
 
-
-    public static Ability CreatePrefix()
-    {
-        Random random = new Random(DateTime.Now.Millisecond);        
+    public static ItemProperty CreatePrefix()
+    {   
         int uniqueID = random.Next(0, mPrefixDict.Count);
-        return mPrefixDict[uniqueID];
+        ItemProperty property = new ItemProperty();
+        ItemPropertyData data = mPrefixDict[uniqueID];
+        property.statsID = data.statsID;
+        property.name = data.name;
+        property.value = random.Next((int)data.min, (int)data.max);
+        
+        return property;
     }
 
-    public static Ability CreatePrefix(int uniqueID)
+    public static ItemPropertyData CreatePrefix(int uniqueID)
     {
         return mPrefixDict[uniqueID];
     }
 
-    public static Ability CreateSurffix()
+    public static ItemProperty CreateSurffix()
     {
-        Random random = new Random(DateTime.Now.Millisecond);
-        int uniqueID = random.Next(0, mSurrfxDict.Count); ;
-        return mSurrfxDict[uniqueID];
+        int uniqueID = random.Next(0, mSurrfxDict.Count);
+        ItemProperty property = new ItemProperty();
+        ItemPropertyData data = mSurrfxDict[uniqueID];
+        property.statsID = data.statsID;
+        property.value = random.Next((int)data.min, (int)data.max);
+
+        return property;
     }
 
-    public static Ability CreateSurffix(int uniqueID)
+    public static ItemPropertyData CreateSurffix(int uniqueID)
     {
         return mSurrfxDict[uniqueID];
     }
@@ -37,7 +46,7 @@ public static class ItemPropertyCreator
         DataParseToExpandableItem(mSurrfxDict, false);
     }
 
-    private static void DataParseToExpandableItem(Dictionary<int, Ability> dict, bool isPrefix = true)
+    private static void DataParseToExpandableItem(Dictionary<int, ItemPropertyData> dict, bool isPrefix = true)
     {
         List<Dictionary<string, object>> csvData = new List<Dictionary<string, object>>();
         if (isPrefix)
@@ -51,11 +60,12 @@ public static class ItemPropertyCreator
          
         for (int i = 0; i < csvData.Count; i++)
         {
-            Ability ablitiy = new Ability();
-            ablitiy.statsID = int.Parse(csvData[i]["StatsID"].ToString());            
-            ablitiy.min = int.Parse(csvData[i]["Min"].ToString());
-            ablitiy.max = int.Parse(csvData[i]["Max"].ToString());
-            dict.Add(i, ablitiy);
+            ItemPropertyData data;
+            data.statsID = int.Parse(csvData[i]["StatsID"].ToString());
+            data.name =  csvData[i]["Name"].ToString();
+            data.min = int.Parse(csvData[i]["Min"].ToString());
+            data.max = int.Parse(csvData[i]["Max"].ToString());
+            dict.Add(i, data);
         }
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class MonsterBase : CreatureClass
 {
     public Animator animator;
-    public Transform _transform;
     public Transform targetTransform;
     public NavMeshAgent nvAgent;
 

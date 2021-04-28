@@ -1,20 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ItemPropertyModifier
+public static class ItemPropertyModifier
 {
     
-    public void CreatePrefix()
+    public static void CreatePrefix(Item targetItem)
     {
-        List<Ability> list = new List<Ability>();
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i <3; i++)
         {
-            list.Add(ItemPropertyCreator.CreatePrefix());
-        }
-
-        foreach(Ability ab in list)
-        {
-            UnityEngine.Debug.Log(ab.ToString());
+            targetItem.itemPropertyList.Add(ItemPropertyCreator.CreatePrefix());
         }
     }
 

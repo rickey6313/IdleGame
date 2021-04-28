@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text;
 
-public struct Ability
+public struct ItemPropertyData
 {
     public int statsID;
+    public string name;
     public float min;
     public float max;
 

@@ -40,7 +40,6 @@ public class Monster_Skeleton : MonsterBase
         isDead = false;
         m_bDethAniEnd = false;
 
-        _transform = GetComponent<Transform>();
         targetTransform = GameObject.FindWithTag("Player")?.GetComponent<Transform>() ?? null;
         nvAgent = GetComponent<NavMeshAgent>();
 
@@ -109,7 +108,6 @@ public class Monster_Skeleton : MonsterBase
                     break;
                 case AniState.ATTACK:
                     nvAgent.destination = targetTransform.position;
-                    //transform.LookAt(targetTransform);
                     yield return AttackRoutine();
                     break;
                 case AniState.DIE:
@@ -165,8 +163,6 @@ public class Monster_Skeleton : MonsterBase
 
     IEnumerator DieRoutine()
     {
-        Debug.Log("DieRoutine 1");
-
         isDead = true;
         animator.SetTrigger("die");
         
@@ -178,12 +174,10 @@ public class Monster_Skeleton : MonsterBase
         StopAllCoroutines();
         gameObject.SetActive(false);
         spanwer.HideTarget(gameObject);
-        Debug.Log("DieRoutine 3");
     }
 
     public void DieEventFromAnimationEvent()
     {
-        Debug.Log("DieEvent");
         m_bDethAniEnd = true;
     }
 

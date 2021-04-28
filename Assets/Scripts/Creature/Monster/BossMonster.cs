@@ -25,7 +25,6 @@ public class BossMonster : MonsterBase
         attackDist = 2.0f;
         attackTime = 2.0f;
 
-        _transform = GetComponent<Transform>();
         targetTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         nvAgent = GetComponent<NavMeshAgent>();
 

@@ -42,9 +42,9 @@ public class PlayerCtrl : CreatureClass
 
         moveDir = Vector3.zero;
         playerCtrl = GetComponent<CharacterController>();
-        mouseRotate.Init(transform, playerCamera.transform);
+        //mouseRotate.Init(transform, playerCamera.transform);
 
-        playerInputManager.Init(this, playerAnimator);
+        //playerInputManager.Init(this, playerAnimator);
 
         //playerAnimator.gameObject.AddComponent<RPGCharacterAnimatorEvents>();
         //playerAnimator.updateMode = AnimatorUpdateMode.AnimatePhysics;
@@ -58,14 +58,14 @@ public class PlayerCtrl : CreatureClass
         inventory.AddItem(ItemFactory.SpawnEquipment("Equip_2"));
         //inventory.AddItem(ItemDataBase.FindExpandableItem(0));
         uiInventory.SetInventory(inventory);
-
+        ItemPropertyModifier.CreatePrefix(inventory.GetItems()[2]);
     }
 
     // Update is called once per frame
     void Update()
     {
-        RotateView();
-        Move();
+        //RotateView();
+        //Move();
     }
 
     private void FixedUpdate()

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Project_RPG;
 
 public class UI_Inventory : MonoBehaviour
 {

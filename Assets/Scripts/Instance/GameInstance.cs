@@ -13,8 +13,5 @@ public class GameInstance : MonoBehaviour
         ItemPropertyDataBase.ReadItemPropertiesData();
         ItemFactory.DataParseToClass();
         ItemPropertyCreator.DataParseToClass();
-
-        ItemPropertyModifier modifier = new ItemPropertyModifier();
-        modifier.CreatePrefix();
     }
 }

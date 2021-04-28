@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Project_RPG;
-
 
 public class ItemBehaviour : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class ItemBehaviour : MonoBehaviour
 
     [SerializeField] 
     private Image mItemImage;
-    [SerializeField] 
+    [SerializeField]
     private TextMeshProUGUI mAmountText;
     [SerializeField]
     private ItemTooltipBehaviour mTooltip;
@@ -23,7 +22,7 @@ public class ItemBehaviour : MonoBehaviour
     }
 
     private void Init()
-    {        
+    {   
         mTooltip.SetDescripton(mItem.ToString());
         mTooltip.gameObject.SetActive(false);
     }
